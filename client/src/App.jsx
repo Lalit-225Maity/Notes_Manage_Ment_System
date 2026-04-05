@@ -10,6 +10,7 @@ import ProtectRoute from './ProtectedRoute/ProtectRoute'
 import Login from './auth/Login'
 import './App.css'
 import Signup from './auth/Signup'
+import Profile from './pages/Profile/Profile'
 const App = () => {
   return (
     <div>
@@ -21,6 +22,7 @@ const App = () => {
             <Route path='personal' element={<Personal />} />
             <Route path='work' element={<Work />} />
             <Route path='important' element={<Important />} />
+            <Route path='profile' element={<Profile/>}/>
           </Route>
         </Route>
         <Route path='/login' element={<Login/>}/>

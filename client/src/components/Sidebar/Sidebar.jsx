@@ -60,7 +60,7 @@ const Logout=()=>{
                             setper(false);
                             setwork(false);
                         }} className={all ? "click" : "not-click"}>All</button>
-                        <button onClick={() => { navigate('personal'); setper(true); setwork(false); setimp(false); setall(false) }} className={per ? "click" : "not-click"}>Personal</button>
+                        <button onClick={() => { navigate('personal'); setper(true); setwork(false); setimp(false); setall(false) }} className={per ? "click" : "not-click"}  >Personal</button>
                         <button onClick={() => { navigate('important'); setper(false); setwork(false); setimp(true); setall(false) }} className={imp ? "click" : "not-click"}>Important</button>
                         <button onClick={() => { navigate('work'); setper(false); setwork(true); setimp(false); setall(false) }} className={work ? "click" : "not-click"}>Work</button>
                     </div>
@@ -71,8 +71,12 @@ const Logout=()=>{
             <div className="login-user">
                 {userlogin ? (
                     <div className="users">
-                         <p>{myuser}</p> 
-                         <button onClick={()=>{Logout()}}>Log out</button>
+                          <div className="app-user">
+                            <h4>{myuser.charAt(0)}</h4>
+                            <p>{myuser}</p> 
+                         
+                          </div>
+                          <button onClick={()=>{navigate('profile')}}>see your profile</button>
                     </div>
                 ): <button onClick={() => { navigate('/login') }}>Login</button>}
             </div>

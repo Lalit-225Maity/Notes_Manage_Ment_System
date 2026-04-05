@@ -4,17 +4,17 @@
      width: 280px;
      height: 100vh;
      position: fixed;
- 
+
      top: 0;
-   
+
      left: 0;
+
+
+
+     z-index: 100;
+     background: #0D1520;
+     border-right: 2px solid #1A2E44;
  
-
-
-     z-index: 100; 
-     background: #222831;
-     border-right: 2px solid #37353E;
-     /* background: linear-gradient(180deg, #393E46, #2E3239); */
 
  }
 
@@ -22,24 +22,25 @@
 
      display: flex;
      flex-direction: column;
-     gap: 20px;
+     gap: 50px;
      padding: 24px 0px;
-     height: 80%;
-     border-bottom: 2px solid #605B51;
+     height: 70%;
+     border-bottom: 2px solid #1A2E44;
  }
 
  .header {
      display: flex;
      gap: 5px;
      padding-left: 12px;
+     
  }
 
  .header h1:first-child {
-     color: #C3FF93;
+     color: #72C4F5;
  }
 
  .header h1:last-child {
-     color: #FFAF61;
+     color: #50E3C2;
  }
 
  .notes {
@@ -64,14 +65,16 @@
      gap: 20px;
      background: transparent;
      border: none;
-     color: white;
+     border-left: 5px solid transparent;
+     color: #a0b8cc;
      cursor: pointer;
+     border-radius:10px 0px 0px 10px;
  }
 
  .notes button.active {
-     background-color: #99AD7A;
-     color: black;
-     border-left: 5px solid #B6FFA1;
+     background-color: #0E2540;
+     color: #72C4F5;
+     border-left: 5px solid #4BA8E0;
  }
 
  .tags {
@@ -79,7 +82,7 @@
      display: flex;
      flex-direction: column;
 
-     height: 15%;
+     height: 18%;
 
 
      justify-content: space-between;
@@ -91,7 +94,7 @@
      letter-spacing: 0.08em;
      margin-left: 5px;
      text-transform: uppercase;
-     color: #888;
+     color: #3a5a78;
 
  }
 
@@ -105,9 +108,9 @@
  .tag-content button {
      padding: 6px 14px;
      border-radius: 20px;
-     border: 1.5px solid #e0e0e0;
-     background: transparent;
-     color: #fff;
+     border: 1.5px solid #1A2E44;
+     background: #0E1E35;
+     color: #72C4F5;
      font-size: 13px;
      font-weight: 500;
      cursor: pointer;
@@ -116,24 +119,111 @@
  }
 
  .tag-content button:hover {
-     background: #f0f0f0;
-     border-color: #bbb;
-     color: #111;
+     background: #1A2E44;
+     border-color: #4BA8E0;
+     color: #72C4F5;
  }
 
  .tag-content button:active {
      transform: scale(0.96);
-     background: #e8e8e8;
+     background: #0E2540;
  }
 
  .tag-content button.click {
-     background-color: #C3FF93;
-     color: #222;
+     background-color: #0E2540;
+     color: #72C4F5;
      font-weight: 600;
-     box-shadow: 0 4px 10px rgba(195, 255, 147, 0.3);
+     border: 1.5px solid #A6F6FF;
+    
  }
 
 
  .tag-content button.not-click {
      opacity: 0.7;
  }
+ /* container */
+.login-user {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* login button (when user not logged in) */
+.login-user > button {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+
+  background: #2563EB;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.login-user > button:hover {
+  background: #1d4ed8;
+}
+
+/* user box */
+.users {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+/* user info row */
+.app-user {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* username */
+.app-user p {
+  font-size: 14px;
+  color: #cbd5f5;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* avatar circle */
+.app-user h4 {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #2563EB;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+/* profile button */
+.users button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #374151;
+  background: transparent;
+  color: #9CA3AF;
+  width: 70%;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.users button:hover {
+  background: #1f2937;
+  color: #fff;
+  border-color: #4b5563;
+}
