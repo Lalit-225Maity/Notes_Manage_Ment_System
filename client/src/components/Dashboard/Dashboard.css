@@ -1,0 +1,13 @@
+ .nav-out {
+     margin-left: 280px;
+     width: calc(100% - 280px);
+ }
+
+ .nav-out>.content {
+     margin-top: 100px;
+     
+     overflow-y: auto;
+     background: #222831;
+
+
+ }

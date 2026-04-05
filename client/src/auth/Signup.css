@@ -1,0 +1,113 @@
+ /* Parent */
+.signup {
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 150px;
+
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url('/top-view-red-pen-notepad-with-small-bow-pine-tree-branch-dark-red-surface-copy-space.jpg');
+
+  background-size: cover;
+  
+}
+.signup .MuiOutlinedInput-input {
+  color: white !important;
+  font-size: 14px !important;
+}
+.signup .MuiOutlinedInput-input::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+  opacity: 1 !important;
+}
+
+.signup .MuiOutlinedInput-root fieldset {
+  border-color: white !important;
+}
+
+.signup .MuiOutlinedInput-root:hover fieldset {
+  border-color: white !important;
+}
+.signup .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: white !important;
+}
+.signup .MuiInputLabel-root {
+  color: white !important;
+}
+.signup .MuiInputLabel-root.Mui-focused {
+  color: white !important;
+}
+.signup .MuiOutlinedInput-root {
+  background: transparent !important;
+}
+.signup form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 380px;
+  padding: 35px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+
+ 
+.signup label {
+  color: #f1f1f1;
+  font-size: 14px;
+}
+
+ 
+.signup button {
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #00adb5, #007b83);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.signup button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 173, 181, 0.6);
+}
+.loading-create {
+  width: 20px;
+  height: 20px;
+  border: 3px solid white;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  margin: auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.err-msg{
+     color: #ff4d4f; 
+  background: rgba(255, 77, 79, 0.1);
+
+  padding: 10px 12px;
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  margin-top: 8px;
+
+  border: 1px solid rgba(255, 77, 79, 0.4);
+
+  text-align: center;
+}

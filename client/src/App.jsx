@@ -1,0 +1,33 @@
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import AllNotes from './pages/AllNotes/AllNotes'
+import Pinned from './pages/Tags/Pinned/Pinned'
+import Dashboard from './components/Dashboard/Dashboard'
+import Work from './pages/Tags/Work/Work'
+import Personal from './pages/Tags/Personal/Personal'
+import Important from './pages/Tags/Important/Important'
+import ProtectRoute from './ProtectedRoute/ProtectRoute'
+import Login from './auth/Login'
+import './App.css'
+import Signup from './auth/Signup'
+const App = () => {
+  return (
+    <div>
+      <Routes>
+        <Route element={<ProtectRoute />}>
+          <Route path='/' element={<Dashboard />}>
+            <Route path='/' element={<AllNotes />} />
+            <Route path='pin' element={<Pinned />} />
+            <Route path='personal' element={<Personal />} />
+            <Route path='work' element={<Work />} />
+            <Route path='important' element={<Important />} />
+          </Route>
+        </Route>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/signup' element={<Signup/>}/>
+      </Routes>
+    </div>
+  )
+}
+
+export default App

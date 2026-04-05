@@ -1,0 +1,109 @@
+/* Page */
+.login {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: 
+    url('/samurai-sunset-japan.jpg');
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* Form */
+.login form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  width: 350px;
+  padding: 35px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Button */
+.login button {
+  margin-top: 10px;
+  padding: 12px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #00adb5, #007b83);
+  color: white;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 173, 181, 0.6);
+}
+
+/* Loader */
+.login-load {
+  width: 20px;
+  height: 20px;
+  border: 3px solid white;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  margin: auto;
+  animation: spin 1s linear infinite;
+}
+
+/* Toast (Welcome User) 🔥 */
+.toast-success {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+
+  background: linear-gradient(135deg, #00c853, #009624);
+  color: white;
+
+  padding: 12px 18px;
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+
+  animation: slideIn 0.4s ease, fadeOut 0.5s ease 2.5s forwards;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

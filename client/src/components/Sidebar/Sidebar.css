@@ -1,0 +1,139 @@
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+ aside {
+     width: 280px;
+     height: 100vh;
+     position: fixed;
+ 
+     top: 0;
+   
+     left: 0;
+ 
+
+
+     z-index: 100; 
+     background: #222831;
+     border-right: 2px solid #37353E;
+     /* background: linear-gradient(180deg, #393E46, #2E3239); */
+
+ }
+
+ .side-bar {
+
+     display: flex;
+     flex-direction: column;
+     gap: 20px;
+     padding: 24px 0px;
+     height: 80%;
+     border-bottom: 2px solid #605B51;
+ }
+
+ .header {
+     display: flex;
+     gap: 5px;
+     padding-left: 12px;
+ }
+
+ .header h1:first-child {
+     color: #C3FF93;
+ }
+
+ .header h1:last-child {
+     color: #FFAF61;
+ }
+
+ .notes {
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+ }
+
+
+ .notes button img {
+     width: 20px;
+ }
+
+ .notes button p {
+     font-weight: 800;
+ }
+
+ .notes button {
+     padding: 20px 20px;
+     display: flex;
+     align-items: center;
+     gap: 20px;
+     background: transparent;
+     border: none;
+     color: white;
+     cursor: pointer;
+ }
+
+ .notes button.active {
+     background-color: #99AD7A;
+     color: black;
+     border-left: 5px solid #B6FFA1;
+ }
+
+ .tags {
+     padding: 10px;
+     display: flex;
+     flex-direction: column;
+
+     height: 15%;
+
+
+     justify-content: space-between;
+ }
+
+ .tags h4 {
+     font-size: 11px;
+     font-weight: 600;
+     letter-spacing: 0.08em;
+     margin-left: 5px;
+     text-transform: uppercase;
+     color: #888;
+
+ }
+
+ .tag-content {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 8px;
+
+ }
+
+ .tag-content button {
+     padding: 6px 14px;
+     border-radius: 20px;
+     border: 1.5px solid #e0e0e0;
+     background: transparent;
+     color: #fff;
+     font-size: 13px;
+     font-weight: 500;
+     cursor: pointer;
+     transition: all 0.18s ease;
+     white-space: nowrap;
+ }
+
+ .tag-content button:hover {
+     background: #f0f0f0;
+     border-color: #bbb;
+     color: #111;
+ }
+
+ .tag-content button:active {
+     transform: scale(0.96);
+     background: #e8e8e8;
+ }
+
+ .tag-content button.click {
+     background-color: #C3FF93;
+     color: #222;
+     font-weight: 600;
+     box-shadow: 0 4px 10px rgba(195, 255, 147, 0.3);
+ }
+
+
+ .tag-content button.not-click {
+     opacity: 0.7;
+ }
