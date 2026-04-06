@@ -6,10 +6,24 @@ import { FaNotesMedical } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import './Navbar.css'
 import { MdOutlineArrowDropDown } from "react-icons/md";
-const Navbar = () => {
+import axios from 'axios';
+const Navbar = ({setcr}) => {
     const location = useLocation();
     const [val, setval] = useState('');
     const [oprndrop, setoprndrop] = useState(false);
+    const [count, setcount] = useState(0)
+useEffect(() => {
+     (async()=>{
+       try {
+        const response=await axios.get('/api/fetchnote');
+       
+     setcount(response.data.length)
+        
+       } catch (error) {
+        
+       }
+     })();
+  }, [])
     useEffect(() => {
         if (location.pathname === '/') {
             setval('All Notes')
@@ -26,24 +40,10 @@ const Navbar = () => {
     const {
         register: noteregister,
         handleSubmit: notesubmit, setValue: notevalue,
-        reset:notereset,
+        reset: notereset,
         formState: { isSubmitting: notesubmitting }
     } = useForm();
-    const searchValue = watch("search")
-  
-    const createNote = async(data) => {
-        await new Promise((resolve, reject) => {
-            setTimeout(() => {
-                console.log(data);
-                resolve();
-               
-                setchange(false);
-                
-            }, 3000);
-        })
-          notereset()
 
-    }
     const color = [
         {
             col: "#E87F24"
@@ -62,7 +62,24 @@ const Navbar = () => {
         },
 
     ]
+    const createNote = async (data) => {
+        await new Promise((resolve, reject) => {
+            setTimeout(async () => {
+                try {
+                    const response = await axios.post('/api/notes', data);
+                    console.log(response.data);
+                    setchange(false);
+                    setcr(true);
+                    resolve("Hi its Complete");
 
+                } catch (error) {
+                    console.log(error.response.data.message);
+                    setcr(false);
+                    reject();
+                }
+            }, 3000);
+        })
+    }
     return (
         <div className="navbar">
             <div className="nav-one">
@@ -78,7 +95,7 @@ const Navbar = () => {
                 </div>
             </div>
             <div className="nav-two">
-                <p><BsDot className='icon_1' />total</p>
+                <p><BsDot className='icon_1' />total {count}</p>
                 <p><BsDot className='icon_2' />pinned</p>
                 <p><BsDot className='icon_3' />showing</p>
             </div>
@@ -87,23 +104,23 @@ const Navbar = () => {
                     <form onSubmit={notesubmit(createNote)}>
                         <div className="newnote">
                             <h4>New Note</h4>
-                            <span onClick={() => { setchange(false) }}><RxCross2 /></span>
+                            <span onClick={() => { setchange(false) }}><RxCross2 className='icon_6' /></span>
                         </div>
                         <label>Title</label>
-                        <input type="text" {...noteregister("NewNote")} placeholder='Note Title' />
+                        <input type="text" {...noteregister("title")} placeholder='Note Title' />
                         <label>Content</label>
-                        <textarea type="text" {...noteregister("Content")} placeholder='write your note here' />
+                        <textarea type="text" {...noteregister("content")} placeholder='write your note here' />
                         <div className="tg-col">
 
                             <div className="tag-note" >
                                 <label>Tag</label>
-                                <div className="tag-inpt" onClick={() => { setoprndrop(true) }} > <input type="text" {...noteregister("tags")} defaultValue={"Personal"} /><MdOutlineArrowDropDown /></div>
+                                <div className="tag-inpt" onClick={() => { setoprndrop(true) }} > <input type="text" {...noteregister("tag")} defaultValue={"Personal"} /><MdOutlineArrowDropDown /></div>
                                 {oprndrop && (
                                     <div className="tag-contents">
-                                        <p onClick={(e) => { notevalue("tags", "Personal"); setoprndrop(false); e.stopPropagation() }}>Personal</p>
-                                        <p onClick={(e) => { notevalue("tags", "Important"); setoprndrop(false); e.stopPropagation() }}>Important</p>
-                                        <p onClick={(e) => { notevalue("tags", "Pinned"); setoprndrop(false); e.stopPropagation() }}>Pinned</p>
-                                        <p onClick={(e) => { notevalue("tags", "Work"); setoprndrop(false); e.stopPropagation() }}>Work</p>
+                                        <p onClick={(e) => { notevalue("tag", "Personal"); setoprndrop(false); e.stopPropagation() }}>Personal</p>
+                                        <p onClick={(e) => { notevalue("tag", "Important"); setoprndrop(false); e.stopPropagation() }}>Important</p>
+                                        <p onClick={(e) => { notevalue("tag", "Pinned"); setoprndrop(false); e.stopPropagation() }}>Pinned</p>
+                                        <p onClick={(e) => { notevalue("tag", "Work"); setoprndrop(false); e.stopPropagation() }}>Work</p>
                                     </div>
                                 )}
                             </div>
@@ -118,7 +135,7 @@ const Navbar = () => {
                                             <input
                                                 type="radio"
                                                 value={i.col}
-                                                {...noteregister("notecolor")}
+                                                {...noteregister("color")}
                                                 onClick={(e) => { e.stopPropagation() }}
                                             />
                                             <span style={{ backgroundColor: i.col }}></span>
@@ -132,7 +149,7 @@ const Navbar = () => {
 
 
                         <div className="add-cancel">
-                        <button onClick={(e)=>{setchange(false);e.stopPropagation()}} className='cancel-btn'>Cancel</button>
+                            <button onClick={(e) => { setchange(false); }} type="button" className='cancel-btn'>Cancel</button>
                             <button type="submit">{notesubmitting ? (
                                 <div className="loading">
                                     <div className="spin"></div>

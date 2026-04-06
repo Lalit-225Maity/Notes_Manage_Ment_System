@@ -7,5 +7,5 @@ router.post('/create',CreateUser);
 router.post('/login',LoginUser);
 router.post('/logout',Logout);
 router.post('/notes',verifyauth,CreateNote);
-router.post('/fetchnote',verifyauth,DecryptNote);
+router.get('/fetchnote',verifyauth,DecryptNote);
 module.exports=router;

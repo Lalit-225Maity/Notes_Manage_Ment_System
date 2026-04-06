@@ -13,6 +13,7 @@ const Sidebar = () => {
     const [all, setall] = useState(false);
     const [myuser, setmyuser] = useState('');
     const [userlogin, setuserlogin] = useState(false);
+   
     const CloseClick = () => {
         setall(false);
         setimp(false);
@@ -79,6 +80,7 @@ const Logout=()=>{
                           <button onClick={()=>{navigate('profile')}}>see your profile</button>
                     </div>
                 ): <button onClick={() => { navigate('/login') }}>Login</button>}
+                <button  onClick={()=>{Logout()}}>Logout</button>
             </div>
         </aside>
     )

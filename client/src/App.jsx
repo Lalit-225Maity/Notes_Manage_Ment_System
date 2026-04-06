@@ -11,13 +11,15 @@ import Login from './auth/Login'
 import './App.css'
 import Signup from './auth/Signup'
 import Profile from './pages/Profile/Profile'
+import { useState } from 'react'
 const App = () => {
+  const [cr, setcr] = useState(false);
   return (
     <div>
       <Routes>
         <Route element={<ProtectRoute />}>
-          <Route path='/' element={<Dashboard />}>
-            <Route path='/' element={<AllNotes />} />
+          <Route path='/' element={<Dashboard setcr={setcr}/>}>
+            <Route path='/' element={<AllNotes cr={cr} />} />
             <Route path='pin' element={<Pinned />} />
             <Route path='personal' element={<Personal />} />
             <Route path='work' element={<Work />} />

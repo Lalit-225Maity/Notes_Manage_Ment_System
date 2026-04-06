@@ -608,7 +608,9 @@
     font-weight: 700;
     color: #72C4F5;
 }
-
+.icon_6{
+    margin-top: 5px;
+}
 .newnote span {
     cursor: pointer;
     padding: 6px 10px;
