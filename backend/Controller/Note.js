@@ -41,4 +41,18 @@ const DecryptNote=async(req,res)=>{
         
     }
 }
-module.exports = { CreateNote,DecryptNote }
+const Delete_Note=async(req,res)=>{
+    try {
+        const {_id}=req.body;
+        const Users=await note.deleteOne({_id})
+        res.status(200).json({
+            message:"User is Deleted",
+            Users:Users
+
+        })
+    } catch (error) {
+        
+    }
+
+}
+module.exports = { CreateNote,DecryptNote,Delete_Note }

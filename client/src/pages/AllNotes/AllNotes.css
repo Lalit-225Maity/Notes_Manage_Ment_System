@@ -1,94 +1,176 @@
- /* AllNotes.css */
-
+ /* MAIN CONTAINER */
 .all-notes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 24px;
-    background-color: #121212; /* Dark industrial background */
-    min-height: 100vh;
-     
+  padding: 25px;
+   background: #0D1520;
+  min-height: 100vh;
 }
 
-.all-user-notes {
-    width: 600px; 
-    background-color: #1E1E1E; /* default, overridden by i.color */
-    border-radius: 12px;
-    padding: 16px 20px;
-    height: 40vh;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    gap: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    border-left: 4px solid #4BA8E0;
-    transition: transform 0.2s, box-shadow 0.2s;
-    color: #EEEEEE;
-    font-family: 'Roboto', sans-serif;
+/* Heading */
+.allnote-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
 }
 
-.all-user-notes:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.6);
+.allnote-heading img {
+  width: 30px;
+  height: 30px;
 }
 
-.all-user-notes h4 {
-    font-size: 18px;
-    font-weight: 700;
-    color: #72C4F5;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.allnote-heading h4 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
 }
 
-.all-user-notes h4::before {
-    content: '📝';
+/* FLEX GRID */
+.all-notes-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.all-user-notes p {
-    font-size: 14px;
-    line-height: 1.5;
-    color: #CCCCCC;
-    margin: 0;
-    word-wrap: break-word;
+/* 🔥 WRAPPER (IMPORTANT) */
+.user-notes {
+  width: 650px;
+  height: 40vh;
+
+  display: flex;
+  flex-direction: column;
+   
+  border-radius: 16px;
+  overflow: hidden; /* keeps button + card together */
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-.tag-user {
-    align-self: flex-start;
-    background: #333;
-    color: #72C4F5;
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    border: 1px solid #4BA8E0;
-    transition: background 0.2s, color 0.2s;
+/* SCROLLABLE CARD */
+.all-details-notes {
+  flex: 1;  /* 🔥 take remaining space */
+
+  padding: 20px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.tag-user:hover {
-    background: #4BA8E0;
-    color: #121212;
-    cursor: default;
+.all-details-notes::-webkit-scrollbar {
+  display: none;
 }
 
-/* Scrollbar styling for long lists */
-.all-notes::-webkit-scrollbar {
-    width: 8px;
+/* Hover */
+.user-notes:hover {
+  transform: translateY(-6px) scale(1.02);
+  transition: 0.3s;
 }
 
-.all-notes::-webkit-scrollbar-thumb {
-    background-color: #4BA8E0;
-    border-radius: 4px;
+/* TAG */
+ .all-details-notes h4 {
+  width: fit-content;
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 50px;
+color: #fff;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+
+  
+  font-weight: 600;
+
+  border: 1px solid rgba(255,255,255,0.3);
 }
 
-.all-notes::-webkit-scrollbar-track {
-    background: #1E1E1E;
+/* TITLE */
+.title-name {
+  font-size: 15px;
+  font-weight: 700;
+   color: #fff;
+
+  margin: 4px 0;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-/* Responsive */
-@media (max-width: 650px) {
-    .all-user-notes {
-        width: 90%; /* smaller screens take most of the width */
-    }
+/* CONTENT */
+.all-details-notes p {
+  font-size: 14px;
+  line-height: 1.5;
+ color: #fff;
+}
+
+/* 🔥 FIXED BOTTOM BUTTON */
+.edit-delete-pdf {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+ 
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* BUTTON */
+.edit-delete-pdf button {
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ICON */
+.icon_10 {
+  font-size: 18px;
+}
+.pdf-btn {
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: white;
+
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover */
+.pdf-btn:hover {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+  transform: scale(1.05);
+}
+
+/* Active click */
+.pdf-btn:active {
+  transform: scale(0.95);
+}
+
+/* Loading state (optional) */
+.pdf-btn.loading {
+  opacity: 0.6;
+  pointer-events: none;
 }
