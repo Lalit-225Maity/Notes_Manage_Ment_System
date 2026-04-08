@@ -1,5 +1,7 @@
  /* MAIN CONTAINER */
 .all-notes {
+  margin-left: 280px;
+  margin-top: 105px;
   padding: 25px;
    background: #0D1520;
   min-height: 100vh;
