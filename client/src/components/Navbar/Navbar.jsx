@@ -20,6 +20,7 @@ useEffect(() => {
      setcount(response.data.length)
         
        } catch (error) {
+        console.log(error);
         
        }
      })();

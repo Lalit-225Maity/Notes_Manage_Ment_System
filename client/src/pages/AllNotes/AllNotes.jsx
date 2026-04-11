@@ -23,6 +23,7 @@ const AllNotes = ({ cr }) => {
         setallnotesdata(response.data)
 
       } catch (error) {
+        console.log(error);
 
       }
     })();
@@ -30,11 +31,11 @@ const AllNotes = ({ cr }) => {
 
   const MyPDF = ({ note }) => (
     <Document>
-      <Page size="A4" style={{ fontSize: "12px", backgroundColor: note.color,alignItems:"center"}}>
+      <Page size="A4" style={{ fontSize: "12px", backgroundColor: note.color, alignItems: "center" }}>
         <View style={{ width: "100vw" }}>
           <Text style={{ color: "black", fontSize: "20px" }}>Lalit Nest</Text>
           <Text>Download in {new Date().toLocaleDateString()}</Text>
-          <View style={{flexDirection: "row",gap:10}}>
+          <View style={{ flexDirection: "row", gap: 10 }}>
             <Text>Title</Text>
             <Text>{note.title}</Text>
           </View>
@@ -68,6 +69,11 @@ const AllNotes = ({ cr }) => {
                 <p>{i.content}</p>
               </div>
               <div className="edit-delete-pdf">
+                <p>{new Date(i.createdAt).toLocaleDateString('en-IN',{
+                  day:'2-digit',
+                  month:'short',
+                  year:'numeric'
+                })}</p>
                 <button onClick={() => { delete_note(i._id) }}><MdDelete className='icon_10' /></button>
                 <PDFDownloadLink
                   document={<MyPDF note={i} />}
