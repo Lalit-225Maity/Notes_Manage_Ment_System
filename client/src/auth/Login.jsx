@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import TextField from '@mui/material/TextField'
+import { NavLink } from 'react-router-dom'
 import axios from 'axios'
 import './Login.css'
 import { useState } from 'react'
@@ -36,11 +37,14 @@ const Login = () => {
     return (
         <div className='login'>
             <form onSubmit={handleSubmit(userLogin)}>
-                <TextField label="Email" variant="outlined" type="email" autoComplete="off" {...register("Email")} />
-                <TextField label="Password" variant="outlined" type="password" autoComplete='off' {...register("Password")} />
+                <TextField label="Email" variant="outlined" type="email" autoComplete="off" {...register("Email")} color="secondary"/>
+                <TextField label="Password" variant="outlined" type="password" autoComplete='off' {...register("Password")} color="secondary"/>
                 <button type="submit">{isSubmitting ? (
                     <div className="login-load"></div>
                 ) : "Login"}</button>
+                <div className="signup-forgot">
+                    <NavLink to='signup'>create new account?</NavLink>
+                </div>
             </form>
             {comp&&(
                 <div className="toast-success">

@@ -1,109 +1,148 @@
-/* Page */
+
+ 
+ 
+ 
 .login {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background: 
-    url('/samurai-sunset-japan.jpg');
-
-  background-size: cover;
-  background-position: center;
-}
-
-/* Form */
-.login form {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-
-  width: 350px;
-  padding: 35px;
-
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  padding: 2rem;
+}
+ 
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.5rem;
 }
 
-/* Button */
-.login button {
-  margin-top: 10px;
-  padding: 12px;
+.brand-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.brand h1 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #f1f1f1;
+  letter-spacing: 0.3px;
+}
+
+.brand p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+ 
+.login form {
+  background: rgba(255, 255, 255, 0.06);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 380px;
+}
+ 
+.login form button[type="submit"] {
+  width: 100%;
+  padding: 13px;
   border: none;
   border-radius: 10px;
-
-  background: linear-gradient(135deg, #00adb5, #007b83);
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
   color: white;
-  font-weight: bold;
-
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.login button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(0, 173, 181, 0.6);
-}
-
-/* Loader */
-.login-load {
-  width: 20px;
-  height: 20px;
-  border: 3px solid white;
-  border-top: 3px solid transparent;
-  border-radius: 50%;
-  margin: auto;
-  animation: spin 1s linear infinite;
-}
-
-/* Toast (Welcome User) 🔥 */
-.toast-success {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-
-  background: linear-gradient(135deg, #00c853, #009624);
-  color: white;
-
-  padding: 12px 18px;
-  border-radius: 10px;
-
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
-
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-
-  animation: slideIn 0.4s ease, fadeOut 0.5s ease 2.5s forwards;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
 }
 
-/* Animations */
-@keyframes slideIn {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+.login form button[type="submit"]:hover {
+  opacity: 0.9;
 }
 
-@keyframes fadeOut {
-  to {
-    opacity: 0;
-    transform: translateX(100%);
-  }
+.login form button[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+.login form button[type="submit"]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+ 
+.login-load {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
 }
 
 @keyframes spin {
-  100% {
-    transform: rotate(360deg);
+  to { transform: rotate(360deg); }
+}
+
+ 
+.toast-success {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: rgba(74, 222, 128, 0.1);
+  border: 0.5px solid rgba(74, 222, 128, 0.35);
+  border-radius: 10px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 200px;
+  max-width: 300px;
+  z-index: 9999;
+  animation: slideInRight 0.35s ease;
+}
+
+.toast-success::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  flex-shrink: 0;
+}
+
+.toast-success h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #86efac;
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+ 
+@media (max-width: 420px) {
+  .login form {
+    padding: 2rem 1.25rem;
   }
 }
