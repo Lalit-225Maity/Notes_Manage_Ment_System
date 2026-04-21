@@ -14,13 +14,14 @@ import Profile from './pages/Profile/Profile'
 import { useState } from 'react'
 const App = () => {
   const [cr, setcr] = useState(false);
+  const [count, setcount] = useState(0);
   return (
     <div>
       <Routes>
         <Route element={<ProtectRoute />}>
-          <Route path='/' element={<Dashboard setcr={setcr}/>}>
+          <Route path='/' element={<Dashboard setcr={setcr} count={count}/>}>
             <Route path='/' element={<AllNotes cr={cr} />} />
-            <Route path='pin' element={<Pinned />} />
+            <Route path='pin' element={<Pinned setcount={setcount}/>} />
             <Route path='personal' element={<Personal />} />
             <Route path='work' element={<Work />} />
             <Route path='important' element={<Important />} />

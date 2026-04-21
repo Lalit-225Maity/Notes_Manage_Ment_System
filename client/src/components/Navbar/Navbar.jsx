@@ -7,7 +7,7 @@ import { RxCross2 } from "react-icons/rx";
 import './Navbar.css'
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import axios from 'axios';
-const Navbar = ({setcr}) => {
+const Navbar = ({setcr,pincount}) => {
     const location = useLocation();
     const [val, setval] = useState('');
     const [oprndrop, setoprndrop] = useState(false);
@@ -80,6 +80,7 @@ useEffect(() => {
                 }
             }, 3000);
         })
+        notereset();
     }
     return (
         <div className="navbar">
@@ -97,7 +98,7 @@ useEffect(() => {
             </div>
             <div className="nav-two">
                 <p><BsDot className='icon_1' />total {count}</p>
-                <p><BsDot className='icon_2' />pinned</p>
+                <p><BsDot className='icon_2' />pinned {pincount}</p>
                 <p><BsDot className='icon_3' />showing</p>
             </div>
             {change && (

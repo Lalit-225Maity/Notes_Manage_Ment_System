@@ -137,7 +137,7 @@
      opacity: 0.7;
  }
 
- /* container */
+ 
  .login-user {
      display: flex;
      margin-top: 10px;
@@ -145,7 +145,7 @@
      justify-content: center;
  }
 
- /* login button (when user not logged in) */
+ 
  .login-user>button {
      padding: 10px 18px;
      border-radius: 8px;
@@ -162,7 +162,7 @@
      background: #1d4ed8;
  }
 
- /* user box */
+  
  .users {
      display: flex;
      flex-direction: column;
@@ -171,7 +171,7 @@
      width: 100%;
  }
 
- /* user info row */
+  
  .app-user {
      display: flex;
      align-items: center;
@@ -179,7 +179,7 @@
      gap: 12px;
  }
 
- /* username */
+ 
  .app-user p {
      font-size: 14px;
      color: #cbd5f5;
@@ -187,7 +187,7 @@
      margin: 0;
  }
 
- /* avatar circle */
+ 
  .app-user h4 {
      width: 40px;
      height: 40px;
@@ -205,7 +205,7 @@
      text-transform: uppercase;
  }
 
- /* profile button */
+ 
  .users button {
      padding: 8px 12px;
      border-radius: 6px;

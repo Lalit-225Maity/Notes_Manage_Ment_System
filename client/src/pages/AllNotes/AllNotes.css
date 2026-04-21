@@ -1,4 +1,4 @@
- /* MAIN CONTAINER */
+ 
 .all-notes {
   margin-left: 280px;
   margin-top: 105px;
@@ -7,7 +7,7 @@
   min-height: 100vh;
 }
 
-/* Heading */
+ 
 .allnote-heading {
   display: flex;
   align-items: center;
@@ -26,14 +26,14 @@
   color: #fff;
 }
 
-/* FLEX GRID */
+  
 .all-notes-section {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
 
-/* 🔥 WRAPPER (IMPORTANT) */
+ 
 .user-notes {
   width: 650px;
   height: 40vh;
@@ -42,17 +42,16 @@
   flex-direction: column;
    
   border-radius: 16px;
-  overflow: hidden; /* keeps button + card together */
+  overflow: hidden;  
 
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(8px);
 
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
-
-/* SCROLLABLE CARD */
+ 
 .all-details-notes {
-  flex: 1;  /* 🔥 take remaining space */
+  flex: 1;   
 
   padding: 20px;
 
@@ -67,13 +66,12 @@
   display: none;
 }
 
-/* Hover */
+ 
 .user-notes:hover {
   transform: translateY(-6px) scale(1.02);
   transition: 0.3s;
 }
-
-/* TAG */
+ 
  .all-details-notes h4 {
   width: fit-content;
   font-size: 12px;
@@ -89,7 +87,7 @@ color: #fff;
   border: 1px solid rgba(255,255,255,0.3);
 }
 
-/* TITLE */
+ 
 .title-name {
   font-size: 15px;
   font-weight: 700;
@@ -103,14 +101,13 @@ color: #fff;
   overflow: hidden;
 }
 
-/* CONTENT */
+ 
 .all-details-notes p {
   font-size: 14px;
   line-height: 1.5;
  color: #fff;
 }
-
-/* 🔥 FIXED BOTTOM BUTTON */
+ 
 .edit-delete-pdf {
   padding: 10px;
   display: flex;
@@ -124,7 +121,7 @@ color: #fff;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* BUTTON */
+ 
 .edit-delete-pdf button {
   background: #ff4d4d;
   border: none;
@@ -138,7 +135,7 @@ color: #fff;
   justify-content: center;
 }
 
-/* ICON */
+ 
 .icon_10 {
   font-size: 18px;
 }
@@ -160,18 +157,17 @@ color: #fff;
   justify-content: center;
 }
 
-/* Hover */
-.pdf-btn:hover {
+ .pdf-btn:hover {
   background: linear-gradient(135deg, #43e97b, #38f9d7);
   transform: scale(1.05);
 }
 
-/* Active click */
+ 
 .pdf-btn:active {
   transform: scale(0.95);
 }
 
-/* Loading state (optional) */
+ 
 .pdf-btn.loading {
   opacity: 0.6;
   pointer-events: none;

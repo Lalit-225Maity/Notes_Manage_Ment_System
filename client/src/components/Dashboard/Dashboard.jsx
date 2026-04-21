@@ -5,7 +5,7 @@ import Navbar from '../Navbar/Navbar'
  
 import { useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
-const Dashboard = ({ setcr }) => {
+const Dashboard = ({ setcr,count }) => {
     const location = useLocation();
 
     return (
@@ -16,7 +16,7 @@ const Dashboard = ({ setcr }) => {
             </Helmet>
             <Sidebar />
 
-            {!location.pathname.includes('profile') && <Navbar setcr={setcr} />}
+            {!location.pathname.includes('profile') && <Navbar setcr={setcr}  pincount={count}/>}
             <Outlet />
 
         </div>
