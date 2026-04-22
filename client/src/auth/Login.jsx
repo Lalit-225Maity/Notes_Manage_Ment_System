@@ -37,18 +37,20 @@ const Login = () => {
     return (
         <div className='login'>
             <form onSubmit={handleSubmit(userLogin)}>
-                <TextField label="Email" variant="outlined" type="email" autoComplete="off" {...register("Email")} color="secondary"/>
-                <TextField label="Password" variant="outlined" type="password" autoComplete='off' {...register("Password")} color="secondary"/>
-                <button type="submit">{isSubmitting ? (
+                <h2>Welcome Back</h2>
+                <p>Please enter your details to sign in.</p>
+                <TextField label="Email" variant="outlined" type="email" autoComplete="off" {...register("Email")} color="secondary" size='small'/>
+                <TextField label="Password" variant="outlined" type="password" autoComplete='off' {...register("Password")} color="secondary" size='small'/>
+                <button type="submit" className='login-btn'>{isSubmitting ? (
                     <div className="login-load"></div>
                 ) : "Login"}</button>
                 <div className="signup-forgot">
-                    <NavLink to='signup'>create new account?</NavLink>
+                    <NavLink to='/signup'>create new account?</NavLink>
                 </div>
             </form>
             {comp&&(
                 <div className="toast-success">
-                    <h4>Welcome User</h4>
+                    <h4>Successfully logged in!</h4>
                 </div>
             )}
         </div>

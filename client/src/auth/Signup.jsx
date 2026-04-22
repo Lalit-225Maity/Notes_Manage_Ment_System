@@ -40,15 +40,15 @@ const Signup = () => {
         <div className='signup'>
             <form onSubmit={handleSubmit(createAccount)} autoComplete="off">
                 <label>Enter Your Name</label>
-                <TextField label="Name" variant="outlined" {...register("name")} type='text' autoComplete="off" color="dark" />
+                <TextField label="Name" variant="outlined" {...register("name")} type='text' autoComplete="off" color="dark" size='small' />
                 <label>Enter Your Phone Number</label>
-                <TextField label="Phone Number" variant="outlined" type="tel" {...register("phoneNumber")} autoComplete='off' color="dark"/>
+                <TextField label="Phone Number" variant="outlined" type="tel" {...register("phoneNumber")} autoComplete='off' color="dark" size='small'/>
                 <label>Enter Your Email ID</label>
-                <TextField label="Email" variant="outlined" {...register("emailID")} type="email" autoComplete='off' color="dark" />
+                <TextField label="Email" variant="outlined" {...register("emailID")} type="email" autoComplete='off' color="dark" size='small' />
                 <label>Create a Password</label>
-                <TextField label="Password" variant="outlined" {...register("password")} type="password" autoComplete='off' color="dark" />
+                <TextField label="Password" variant="outlined" {...register("password")} type="password" autoComplete='off' color="dark" size='small' />
                 <label>Confirm Password</label>
-                <TextField label="Re-Type Password" variant="outlined" {...register("confirmpass")} type="password" autoComplete='off' color="dark" />
+                <TextField label="Re-Type Password" variant="outlined" {...register("confirmpass")} type="password" autoComplete='off' color="dark" size='small' />
                 <button type="submit">{isSubmitting ? (
                     <div className="loading-create"></div>
                 ) : "create account"}</button>

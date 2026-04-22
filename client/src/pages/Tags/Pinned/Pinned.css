@@ -1,138 +1,93 @@
- 
-.pinned-notes {
-  margin-left: 280px;
-  margin-top: 105px;
-  padding: 25px;
-
-  background: #0D1520;
+.pinned-notes{
+    margin-left: 240px;
+  padding-top: 100px;
+  padding-right: 30px;
+  padding-bottom: 60px;
   min-height: 100vh;
-
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+   background-color: #0f0f1a; 
+  padding-left: 20px;
+} 
+.pin-section-notes{
+   max-width:100vw; 
+     display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 10px;
 }
-
- 
-.pin-wrapper {
-  width: 600px;
-  height: 260px;
-
+.pin-wrapper h4{
+font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+  margin-bottom: 8px;
+}
+.title-para{
+    font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.82);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.pin-wrapper{
+   border-radius: 16px;
+  padding: 20px;
+  height: 280px;
   display: flex;
   flex-direction: column;
-
-  border-radius: 16px;
-  overflow: hidden;
-
-  backdrop-filter: blur(8px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-
-  transition: 0.3s;
-}
-
+  justify-content: space-between;
  
-.pin-wrapper:hover {
-  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
 }
-
-/* TAG BUTTON */
-.pin-wrapper > button {
-  margin: 10px;
-  width: fit-content;
-
-  font-size: 12px;
-  padding: 6px 14px;
-  border-radius: 50px;
-
-  color: #fff;
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(6px);
-
-  font-weight: 600;
-  border: 1px solid rgba(255,255,255,0.3);
-
-  border: none;
-  cursor: default;
-}
-
-/* 🔥 CONTENT AREA (scrollable) */
-.pin-para {
-  flex: 1;                /* takes remaining space */
-  padding: 15px;
-
+.pin-para{
+   flex: 1;
+  
   overflow-y: auto;
   overflow-x: hidden;
-
   scrollbar-width: none;
   -ms-overflow-style: none;
-}
-
-.pin-para::-webkit-scrollbar {
-  display: none;
-}
-
-/* TITLE */
-.pin-para h5 {
-  font-size: 15px;
-  font-weight: 700;
-  color: #fff;
-
-  margin: 4px 0;
-
-  display: -webkit-box;
-  -webkit-line-clamp: 2;   /* max 2 lines */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* CONTENT */
-.pin-para p {
-  font-size: 14px;
-  line-height: 1.5;
-  color: #fff;
-}
-
-/* 🔥 FIXED FOOTER AT BOTTOM */
-.pin-delete-download {
-  margin-top: auto;        /* 🔥 pushes to bottom */
-
-  padding: 10px;
+ 
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(6px);
-
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  flex-direction: column;
+  gap: 10px;
 }
-
-/* DATE */
-.pin-delete-download p {
-  font-size: 12px;
-  color: #fff;
-}
-
-/* DELETE BUTTON */
-.pin-delete-download button {
-  background: #ff4d4d;
+.pin-wrapper p:last-child {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.55);
+  line-height: 1.6;
+  
+} 
+.pin-delete-download button{
+   background: rgba(0, 0, 0, 0.06);
   border: none;
-  padding: 6px 10px;
   border-radius: 8px;
-  cursor: pointer;
-
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  transition: 0.2s;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+  color: rgba(0, 0, 0, 0.5);
 }
-
-.pin-delete-download button:hover {
-  transform: scale(1.1);
+.icon_11 {
+  font-size: 16px;
 }
-
-/* ICON */
-.pin-delete-download img {
-  width: 16px;
-  height: 16px;
+.pin-delete-download{
+   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  gap: 8px;
+}
+.pin-delete-download p{
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 500;
+  flex: 1;
 }

@@ -14,6 +14,7 @@ import {
 } from "@react-pdf/renderer";
 const AllNotes = ({ cr }) => {
   const [allnotesdata, setallnotesdata] = useState([]);
+  const [load, setload] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -47,9 +48,12 @@ const AllNotes = ({ cr }) => {
     </Document>
   );
   const delete_note = (_id) => {
+     setload(true);
     setTimeout(async () => {
       const response = await axios.post('/api/deletenote', { _id });
       console.log(response.data);
+      setload(false);
+      window.location.reload();
 
     }, 3000);
   }
@@ -61,7 +65,7 @@ const AllNotes = ({ cr }) => {
           <h4>ALL NOTES</h4>
         </span>
         <div className="all-notes-section">
-          {allnotesdata.length > 0 && allnotesdata.map((i) => (
+          {allnotesdata.length > 0 ?( allnotesdata.map((i) => (
             <div className="user-notes" style={{ backgroundColor: i.color }} id='myusernotes'>
               <div className="all-details-notes"  >
                 <h4>{i.tag}</h4>
@@ -85,7 +89,11 @@ const AllNotes = ({ cr }) => {
               </div>
             </div>
 
-          ))}
+          ))):(<div className='create-note-user'>
+                <img src="/notepad.png" alt="" />
+                <p>create a new note</p>
+          </div>)} 
+          {load&&(<div className='delete-loading'><div className="spinner"><p>Deleting</p></div></div>)}
         </div>
       </section>
     </div>
