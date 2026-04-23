@@ -1,0 +1,85 @@
+ * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f6f9;
+  color: #333;
+}
+
+.user-profile {
+  max-width: 750px;
+  margin-left: 240px;
+  margin: 40px auto;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+ 
+.user-details {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.profile-detail h4 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.profile-detail p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.7;
+}
+ 
+.user-profile .recharts-wrapper {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+ 
+.recharts-xaxis .recharts-cartesian-axis-tick-value,
+.recharts-yaxis .recharts-cartesian-axis-tick-value {
+  fill: #888;
+  font-size: 13px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.recharts-cartesian-grid-horizontal line {
+  stroke: #eee;
+}
+ 
+.recharts-default-tooltip {
+  border-radius: 8px !important;
+  border: 1px solid #e0e0e0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.recharts-tooltip-label {
+  font-weight: 600 !important;
+  color: #333 !important;
+}
+ 
+@media (max-width: 500px) {
+  .user-profile {
+    margin: 20px auto;
+  }
+
+  .user-details {
+    padding: 20px;
+  }
+
+  .profile-detail h4 {
+    font-size: 18px;
+  }
+}

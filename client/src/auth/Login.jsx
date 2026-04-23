@@ -21,6 +21,7 @@ const Login = () => {
                     const response = await axios.post('/api/login', data);
                     console.log(response.data.user);
                     localStorage.setItem("User", JSON.stringify(response.data.user.name));
+                    localStorage.setItem("Profile",JSON.stringify(response.data.user));
                     setcomp(true);
                   setTimeout(() => {
                        navigate('/');
