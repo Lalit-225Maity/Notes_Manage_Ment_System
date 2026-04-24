@@ -1,85 +1,124 @@
+ 
+
  * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+ }
+
+ .user-profile {
+   display: flex;
+
+   max-width: 100%;
+   margin-left: 240px;
+   
+
+   min-height: 100vh;
+   border: 2px solid red;
+   background-color: #f5f5f3;
+ }
+
+ .user-details {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+
+ }
+
+ .profile-detail {
+   background: linear-gradient(135deg, #0f1b3d 0%, #85193c 100%);
+ 
+   border-radius: 12px;
+   padding: 1.5rem;
+   display: flex;
+   flex-direction: column;
+   gap: 1.5rem;
+ }
+
+  .profile-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, #fdf6f9 0%, #f5f0ff 100%);
+  border-radius: 12px;
+  border: 1px solid #ede0f0;
+  position: relative;
+  overflow: hidden;
 }
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f4f6f9;
-  color: #333;
+.profile-user::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #85193c, #5E7AC4);
+  border-radius: 12px 0 0 12px;
 }
 
-.user-profile {
-  max-width: 750px;
-  margin-left: 240px;
-  margin: 40px auto;
-  padding: 0 16px;
+.profile-user button {
+  width: 68px;
+  height: 68px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  outline: 3px solid #85193c;
+  background: linear-gradient(135deg, #85193c, #a8204e);
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 600;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(133, 25, 60, 0.3);
+}
+
+.user-other-details {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 5px;
 }
 
- 
-.user-details {
-  background: #fff;
-  border-radius: 12px;
-  padding: 28px 32px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.profile-detail h4 {
-  font-size: 22px;
+.user-other-details h4 {
+  font-size: 17px;
   font-weight: 600;
-  color: #1a1a1a;
-  margin-bottom: 8px;
+  color: #111111;
+  letter-spacing: 0.01em;
 }
 
-.profile-detail p {
-  font-size: 14px;
-  color: #666;
-  line-height: 1.7;
-}
- 
-.user-profile .recharts-wrapper {
-  background: #fff;
-  border-radius: 12px;
-  padding: 24px 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
- 
-.recharts-xaxis .recharts-cartesian-axis-tick-value,
-.recharts-yaxis .recharts-cartesian-axis-tick-value {
-  fill: #888;
+.user-other-details p {
   font-size: 13px;
-  font-family: 'Segoe UI', sans-serif;
+  color: #666666;
+  line-height: 1.6;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.recharts-cartesian-grid-horizontal line {
-  stroke: #eee;
-}
- 
-.recharts-default-tooltip {
-  border-radius: 8px !important;
-  border: 1px solid #e0e0e0 !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+.user-other-details p::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #85193c;
+  opacity: 0.5;
+  flex-shrink: 0;
 }
 
-.recharts-tooltip-label {
-  font-weight: 600 !important;
-  color: #333 !important;
-}
- 
-@media (max-width: 500px) {
-  .user-profile {
-    margin: 20px auto;
-  }
 
-  .user-details {
-    padding: 20px;
-  }
 
-  .profile-detail h4 {
-    font-size: 18px;
-  }
-}
+ @media (max-width: 768px) {
+   .user-profile {
+     margin-left: 0;
+     padding: 1rem;
+   }
+
+   .user-details {
+     max-width: 100%;
+   }
+ }
