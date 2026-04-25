@@ -20,7 +20,14 @@ const Signup = () => {
                 try {
                     const response = await axios.post('/api/create', data);
                     console.log(response.data);
-                    navigate('/login');
+                    const mydata = {
+                        ...data,
+                        Email: data.emailID
+                    }
+                    const response_2 = await axios.post('/api/otpsend', mydata);
+                    console.log(response_2.data);
+
+                    navigate('/otp',{state:{Email:data.emailID}});
                     setcorrect(false);
                     resolve();
 
@@ -42,7 +49,7 @@ const Signup = () => {
                 <label>Enter Your Name</label>
                 <TextField label="Name" variant="outlined" {...register("name")} type='text' autoComplete="off" color="dark" size='small' />
                 <label>Enter Your Phone Number</label>
-                <TextField label="Phone Number" variant="outlined" type="tel" {...register("phoneNumber")} autoComplete='off' color="dark" size='small'/>
+                <TextField label="Phone Number" variant="outlined" type="tel" {...register("phoneNumber")} autoComplete='off' color="dark" size='small' />
                 <label>Enter Your Email ID</label>
                 <TextField label="Email" variant="outlined" {...register("emailID")} type="email" autoComplete='off' color="dark" size='small' />
                 <label>Create a Password</label>
@@ -52,7 +59,7 @@ const Signup = () => {
                 <button type="submit">{isSubmitting ? (
                     <div className="loading-create"></div>
                 ) : "create account"}</button>
-                {correct&&<p className='err-msg'>{msg}</p>}
+                {correct && <p className='err-msg'>{msg}</p>}
             </form>
         </div>
     )

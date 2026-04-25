@@ -7,6 +7,7 @@ import Work from './pages/Tags/Work/Work'
 import Personal from './pages/Tags/Personal/Personal'
 import Important from './pages/Tags/Important/Important'
 import ProtectRoute from './ProtectedRoute/ProtectRoute'
+import OTP from './auth/OTP' 
 import Login from './auth/Login'
 import './App.css'
 import Signup from './auth/Signup'
@@ -30,6 +31,7 @@ const App = () => {
         </Route>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
+        <Route path='/otp' element={<OTP/>}/>
       </Routes>
     </div>
   )

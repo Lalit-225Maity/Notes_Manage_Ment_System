@@ -89,7 +89,7 @@ useEffect(() => {
                 <div className="nav-right">
                     <div className="search-bar">
                         <img src="/loupe (1).png" alt="Error" />
-                        <input type="text" {...register("search")} />
+                        <input type="text" {...register("search")} autoComplete='off' />
                     </div>
                     <button onClick={() => { setchange(true) }}>
                         <FaNotesMedical />  New Note

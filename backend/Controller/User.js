@@ -64,7 +64,7 @@ const CreateUser = async (req, res) => {
 const sendOTP = async (req, res) => {
     try {
         const { Email } = req.body;
-        const checker = await User.findOne({ emailID:Email })
+        const checker = await User.findOne({ emailID: Email })
         if (!checker) {
             return res.status(404).json({
                 message: "user is not found"
@@ -86,18 +86,24 @@ const sendOTP = async (req, res) => {
 }
 const verifyOTP = async (req, res) => {
     try {
-        const { OTP, Email } = req.body;
-        const otpchecker = await OTP.findOne({ email_id: Email, otp_no: OTP });
+        const { otp_no, Email } = req.body;
+        const otpchecker = await OTP.findOne({ email_id: Email, otp_no });
+
+
         if (!otpchecker) {
-            return res.status(404).json({
-                message: "Invalid Email ID"
-            })
+            await User.deleteMany({ emailID: Email })
+            return res.status(400).json({
+                message: "Invalid OTP, account deleted"
+            });
+
         }
         res.status(200).json({
             otpchecker: otpchecker
         })
     } catch (error) {
-
+        res.status(500).json({
+            message: error.message
+        })
     }
 }
 const LoginUser = async (req, res) => {
