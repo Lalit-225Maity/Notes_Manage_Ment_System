@@ -78,9 +78,9 @@ const Profile = () => {
                 bottom: 5,
               }}
             >
-              <CartesianGrid strokeDasharray="3 3" vertical={false} />
+             
               <XAxis dataKey="name" />
-              <YAxis width={50} domain={[0, 100]} ticks={[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]}
+              <YAxis width={50} domain={[0, 'auto']}   allowDecimals={false}
               />
               <Tooltip />
 
@@ -103,9 +103,9 @@ const Profile = () => {
                 left: 0,
               }}
             >
-              <CartesianGrid strokeDasharray="3 3" vertical={false} />
+            
               <XAxis dataKey="name" scale="band" />
-              <YAxis width="auto" niceTicks="snap125" domain={[0, 10]} ticks={[1,2,3,4,5,6,7,8,9,10]}/>
+              <YAxis width="auto" niceTicks="snap125" domain={[0, 'auto']}   allowDecimals={false}/>
               <Tooltip />
 
               <Area type="monotone" dataKey="amt" fill="#8884d8" stroke="#8884d8" />

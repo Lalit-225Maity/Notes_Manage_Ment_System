@@ -7,7 +7,7 @@ import Work from './pages/Tags/Work/Work'
 import Personal from './pages/Tags/Personal/Personal'
 import Important from './pages/Tags/Important/Important'
 import ProtectRoute from './ProtectedRoute/ProtectRoute'
-import OTP from './auth/OTP' 
+import OTP from './auth/OTP'
 import Login from './auth/Login'
 import './App.css'
 import Signup from './auth/Signup'
@@ -20,18 +20,18 @@ const App = () => {
     <div>
       <Routes>
         <Route element={<ProtectRoute />}>
-          <Route path='/' element={<Dashboard setcr={setcr} count={count}/>}>
+          <Route element={<Dashboard setcr={setcr} count={count} />}>
             <Route path='/' element={<AllNotes cr={cr} />} />
-            <Route path='pin' element={<Pinned setcount={setcount}/>} />
+            <Route path='pin' element={<Pinned setcount={setcount} />} />
             <Route path='personal' element={<Personal />} />
             <Route path='work' element={<Work />} />
             <Route path='important' element={<Important />} />
-            <Route path='profile' element={<Profile/>}/>
+            <Route path='profile' element={<Profile />} />
           </Route>
         </Route>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/signup' element={<Signup/>}/>
-        <Route path='/otp' element={<OTP/>}/>
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/otp' element={<OTP />} />
       </Routes>
     </div>
   )
