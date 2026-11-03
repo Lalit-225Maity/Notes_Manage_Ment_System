@@ -8,8 +8,7 @@ import Personal from './pages/Tags/Personal/Personal'
 import Important from './pages/Tags/Important/Important'
 import ProtectRoute from './ProtectedRoute/ProtectRoute'
 import OTP from './auth/OTP'
-import Login from './auth/Login'
-import './App.css'
+import Login from './auth/Login' 
 import Signup from './auth/Signup'
 import Profile from './pages/Profile/Profile'
 import { useState } from 'react'
@@ -19,9 +18,13 @@ const App = () => {
   return (
     <div>
       <Routes>
+        <Route path='/' element={<Login />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/otp' element={<OTP />} />
         <Route element={<ProtectRoute />}>
-          <Route element={<Dashboard setcr={setcr} count={count} />}>
-            <Route path='/' element={<AllNotes cr={cr} />} />
+          <Route path='/dashboard' element={<Dashboard setcr={setcr} count={count} />}>
+            <Route index element={<AllNotes cr={cr} />} />
             <Route path='pin' element={<Pinned setcount={setcount} />} />
             <Route path='personal' element={<Personal />} />
             <Route path='work' element={<Work />} />
@@ -29,9 +32,6 @@ const App = () => {
             <Route path='profile' element={<Profile />} />
           </Route>
         </Route>
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/otp' element={<OTP />} />
       </Routes>
     </div>
   )

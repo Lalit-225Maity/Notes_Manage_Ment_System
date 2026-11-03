@@ -43,11 +43,11 @@ const Logout=()=>{
                     <h1>Nest</h1>
                 </span>
                 <div className="notes">
-                    <button onClick={() => { navigate('/'); CloseClick(); setallnote(true); setpined(false) }} className={allnote ? "active" : "not-active"}>
+                    <button onClick={() => { navigate('/dashboard'); CloseClick(); setallnote(true); setpined(false) }} className={allnote ? "active" : "not-active"}>
                         <img src="/pencil.png" alt="Error" />
                         <p>All Notes</p>
                     </button>
-                    <button onClick={() => { navigate('pin'); setallnote(false); setpined(true) }} className={pined ? "active" : "not-active"}>
+                    <button onClick={() => { navigate('/dashboard/pin'); setallnote(false); setpined(true) }} className={pined ? "active" : "not-active"}>
                         <img src="/pin.png" alt="" />
                         <p>Pinned</p>
                     </button>
@@ -57,13 +57,13 @@ const Logout=()=>{
                     <h4>Tags</h4>
                     <div className="tag-content">
                         <button onClick={() => {
-                            navigate('/'); setall(true); setimp(false);
+                            navigate('/dashboard'); setall(true); setimp(false);
                             setper(false);
                             setwork(false);
                         }} className={all ? "click" : "not-click"}>All</button>
-                        <button onClick={() => { navigate('personal'); setper(true); setwork(false); setimp(false); setall(false) }} className={per ? "click" : "not-click"}  >Personal</button>
-                        <button onClick={() => { navigate('important'); setper(false); setwork(false); setimp(true); setall(false) }} className={imp ? "click" : "not-click"}>Important</button>
-                        <button onClick={() => { navigate('work'); setper(false); setwork(true); setimp(false); setall(false) }} className={work ? "click" : "not-click"}>Work</button>
+                        <button onClick={() => { navigate('/dashboard/personal'); setper(true); setwork(false); setimp(false); setall(false) }} className={per ? "click" : "not-click"}  >Personal</button>
+                        <button onClick={() => { navigate('/dashboard/important'); setper(false); setwork(false); setimp(true); setall(false) }} className={imp ? "click" : "not-click"}>Important</button>
+                        <button onClick={() => { navigate('/dashboard/work'); setper(false); setwork(true); setimp(false); setall(false) }} className={work ? "click" : "not-click"}>Work</button>
                     </div>
 
 
@@ -77,7 +77,7 @@ const Logout=()=>{
                             <p>{myuser}</p> 
                          
                           </div>
-                          <button onClick={()=>{navigate('profile')}}>see your profile</button>
+                          <button onClick={()=>{navigate('/dashboard/profile')}}>see your profile</button>
                     </div>
                 ): <button onClick={() => { navigate('/login') }}>Login</button>}
                 <button  onClick={()=>{Logout()}}>Logout</button>

@@ -73,7 +73,7 @@ const sendOTP = async (req, res) => {
         const createOTP = Math.floor(100000 + Math.random() * 999999);
         const otpsend = new OTP({ email_id: Email, otp_no: createOTP })
         await otpsend.save();
-        sendEmail(Email, "otpsend", "Hi User");
+        sendEmail(Email, "otpsend", `Hi User your OTP is ${createOTP}`);
         res.status(200).json({
             otpsend: otpsend
         })

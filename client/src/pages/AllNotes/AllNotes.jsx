@@ -9,7 +9,6 @@ import {
   Page,
   Text,
   View,
-  StyleSheet,
   PDFDownloadLink
 } from "@react-pdf/renderer";
 const AllNotes = ({ cr }) => {
@@ -149,27 +148,30 @@ const AllNotes = ({ cr }) => {
     }, 3000);
   }
   return (
-    <div className='all-notes'>
+    <main className='all-notes'>
       <section>
         <span className="allnote-heading">
-          <img src="/notes (1).png" alt="" />
-          <h4>ALL NOTES</h4>
+          <span className="allnote-heading-icon"><img src="/notes (1).png" alt="" /></span>
+          <div>
+            <p className="allnote-eyebrow">YOUR LIBRARY</p>
+            <h1>All notes <span>{allnotesdata.length}</span></h1>
+          </div>
         </span>
         <div className="all-notes-section">
           {allnotesdata.length > 0 ?( allnotesdata.map((i) => (
-            <div className="user-notes" style={{ backgroundColor: i.color }} id='myusernotes'>
-              <div className="all-details-notes"  >
-                <h4>{i.tag}</h4>
-                <p className='title-name'>Title : {i.title}</p>
-                <p>{i.content}</p>
+            <article className="user-notes" style={{ '--note-color': i.color || '#b9cdb1' }} key={i._id}>
+              <div className="all-details-notes">
+                <span className="note-tag">{i.tag}</span>
+                <h2 className='title-name'>{i.title}</h2>
+                <p className="note-content">{i.content}</p>
               </div>
               <div className="edit-delete-pdf">
-                <p>{new Date(i.createdAt).toLocaleDateString('en-IN',{
+                <time dateTime={i.createdAt}>{new Date(i.createdAt).toLocaleDateString('en-IN',{
                   day:'2-digit',
                   month:'short',
                   year:'numeric'
-                })}</p>
-                <button onClick={() => { delete_note(i._id) }}><MdDelete className='icon_10' /></button>
+                })}</time>
+                <button type="button" aria-label={`Delete ${i.title}`} onClick={() => { delete_note(i._id) }}><MdDelete className='icon_10' /></button>
                 <PDFDownloadLink
                   document={<MyPDF note={i} />}
                   fileName={`note-${i._id}.pdf`}
@@ -178,16 +180,17 @@ const AllNotes = ({ cr }) => {
                   Download
                 </PDFDownloadLink>
               </div>
-            </div>
+            </article>
 
-          ))):(<div className='create-note-user'>
+          ))):(<div className='create-note-user' role="status">
                 <img src="/notepad.png" alt="" />
-                <p>create a new note</p>
+                <h2>Your notes will live here</h2>
+                <p>Create your first note to start building your library.</p>
           </div>)} 
           {load&&(<div className='delete-loading'><div className="spinner"><p>Deleting</p></div></div>)}
         </div>
       </section>
-    </div>
+    </main>
   )
 }
 

@@ -24,7 +24,7 @@ const Login = () => {
                     localStorage.setItem("Profile",JSON.stringify(response.data.user));
                     setcomp(true);
                   setTimeout(() => {
-                       navigate('/');
+                       navigate('/dashboard');
                   }, 3000);
                     resolve();
                 } catch (error) {

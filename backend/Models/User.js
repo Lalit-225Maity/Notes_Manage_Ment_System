@@ -15,7 +15,8 @@ const User=new Schema({
     emailID:{
         type:String,
         required:true
-    }
+    },
+   
 })
 const Users=model('User',User);
 module.exports=Users;

@@ -26,7 +26,7 @@ useEffect(() => {
      })();
   }, [])
     useEffect(() => {
-        if (location.pathname === '/') {
+        if (location.pathname === '/dashboard') {
             setval('All Notes')
         }
         else if (location.pathname.includes('pin')) {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ComposedChart, Cell, Scatter, Area, Line } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Cell } from 'recharts';
 
 import axios from 'axios'
 import './Profile.css'
@@ -52,80 +52,79 @@ const Profile = () => {
 
 
   ];
+  const totalNotes = data.reduce((total, item) => total + item.note, 0);
 
   return (
-    <div className='user-profile'>
+    <main className='user-profile'>
       <div className="user-details">
-        {userProfile &&
-          <div className="profile-detail">
-            <div className="profile-user" >
-              <button>{userProfile.name.charAt(0)}</button>
+        <header className="profile-page-heading">
+          <div>
+            <p className="profile-eyebrow">ACCOUNT OVERVIEW</p>
+            <h1>Your profile</h1>
+            <p className="profile-subtitle">A quick look at your notes and how they’re organized.</p>
+          </div>
+          <div className="profile-total"><span>{totalNotes}</span><small>notes saved</small></div>
+        </header>
+
+        {userProfile && (
+          <section className="profile-detail" aria-label="Profile details and note activity">
+            <div className="profile-user">
+              <div className="profile-avatar" aria-hidden="true">{userProfile.name?.charAt(0) || '?'}</div>
               <div className="user-other-details">
-                <h4>{userProfile.name}</h4>
-                <p>Email ID : {userProfile.emailID}</p>
-                <p>Phone Number : {userProfile.phoneNumber}</p>
+                <span className="profile-label">YOUR ACCOUNT</span>
+                <h2>{userProfile.name}</h2>
+                <p>{userProfile.emailID}</p>
+                <p>{userProfile.phoneNumber}</p>
               </div>
             </div>
-            <BarChart
-              style={{ width: '60%', maxHeight: '60vh', aspectRatio: 1.618 }}
-              responsive
-              data={data}
 
-              margin={{
-                top: 5,
-                right: 0,
-                left: 0,
-                bottom: 5,
-              }}
-            >
-             
-              <XAxis dataKey="name" />
-              <YAxis width={50} domain={[0, 'auto']}   allowDecimals={false}
-              />
-              <Tooltip />
+            <div className="profile-stats" aria-label="Notes by category">
+              {data.map((item) => (
+                <div className="profile-stat" key={item.name} style={{ '--stat-color': item.color }}>
+                  <span>{item.name}</span>
+                  <strong>{item.note}</strong>
+                </div>
+              ))}
+            </div>
 
-              <Bar dataKey="note" activeBar={false} radius={[10, 10, 0, 0]} maxBarSize={60} >
-                {data.map((i, key) => (
-                  <Cell key={key} fill={i.color} />
-                ))}
-              </Bar>
+            <div className="profile-charts">
+              <section className="profile-chart-card">
+                <div className="profile-chart-heading">
+                  <div><span>COLLECTION</span><h2>Notes by category</h2></div>
+                  <span className="chart-total">{totalNotes} total</span>
+                </div>
+                <div className="profile-chart">
+                  <BarChart data={data} responsive margin={{ top: 12, right: 8, left: -16, bottom: 0 }}>
+                    <CartesianGrid stroke="#edf0e9" vertical={false} />
+                    <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: '#7c8678', fontSize: 12 }} />
+                    <YAxis allowDecimals={false} axisLine={false} tickLine={false} tick={{ fill: '#929b8e', fontSize: 11 }} />
+                    <Tooltip cursor={{ fill: '#f4f7f1' }} />
+                    <Bar dataKey="note" name="Notes" radius={[8, 8, 0, 0]} maxBarSize={56}>
+                      {data.map((item) => <Cell key={item.name} fill={item.color} />)}
+                    </Bar>
+                  </BarChart>
+                </div>
+              </section>
 
-
-            </BarChart>
-            <ComposedChart
-              style={{ width: '100%', maxWidth: '700px', maxHeight: '70vh', aspectRatio: 1.618 }}
-              responsive
-              data={data}
-              margin={{
-                top: 20,
-                right: 0,
-                bottom: 0,
-                left: 0,
-              }}
-            >
-            
-              <XAxis dataKey="name" scale="band" />
-              <YAxis width="auto" niceTicks="snap125" domain={[0, 'auto']}   allowDecimals={false}/>
-              <Tooltip />
-
-              <Area type="monotone" dataKey="amt" fill="#8884d8" stroke="#8884d8" />
-              <Bar dataKey="note" maxBarSize={60}   >
-                {data.map((i, key) => (
-                  <Cell key={key} fill={i.color} />
-                ))}
-              </Bar>
-              <Line type="monotone" dataKey="note" stroke="#ff7300" />
-
-
-            </ComposedChart>
-
-
-          </div>
-        }
+              <section className="profile-chart-card">
+                <div className="profile-chart-heading">
+                  <div><span>BREAKDOWN</span><h2>Notes share</h2></div>
+                  <span className="chart-total">By category</span>
+                </div>
+                <div className="profile-chart">
+                  <PieChart responsive>
+                    <Tooltip />
+                    <Pie data={data} dataKey="note" nameKey="name" innerRadius="52%" outerRadius="82%" paddingAngle={4} stroke="none">
+                      {data.map((item) => <Cell key={item.name} fill={item.color} />)}
+                    </Pie>
+                  </PieChart>
+                </div>
+              </section>
+            </div>
+          </section>
+        )}
       </div>
-
-
-    </div>
+    </main>
   )
 }
 
